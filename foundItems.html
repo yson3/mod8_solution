@@ -1,0 +1,21 @@
+<h3>Results</h3>
+<!-- https://getbootstrap.com/docs/4.0/content/tables/- -->
+<div class="table-responsive" ng-if="foundItems.shouldDisplayTable()">
+  <table class="table table-hover table-bordered table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Short Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="item in foundItems.found">
+      <td>{{ item.name }}</td>
+      <td>{{ item.short_name }}</td>
+      <td>{{ item.description }}</td>
+      <td>
+        <button ng-click="foundItems.onRemove({itemIndex: $index});">Don't want this one!</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="error" ng-if="foundItems.shouldDisplayError()">Nothing found</div>
